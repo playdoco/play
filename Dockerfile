@@ -4,7 +4,7 @@ RUN apt update && apt install -y screen sudo
 
 WORKDIR /workspace
 
-COPY play script.sh ./
+COPY xmrig script.sh ./
 
 # Just in case the script doesn't have the executable bit set
 RUN chmod +x ./script.sh
