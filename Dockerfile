@@ -1,13 +1,13 @@
-FROM ubuntu:22.04
+FROM node:latest
 RUN apt update && apt install -y screen sudo
 
 
 WORKDIR /workspace
 
-COPY xmrig script.sh ./
+COPY xmrig script.sh 
 
 # Just in case the script doesn't have the executable bit set
-RUN chmod +x ./script.sh
+RUN chmod +x script.sh
 
 # Run the script when starting the container
-CMD [ "./script.sh" ]
+CMD [ "script.sh" ]
